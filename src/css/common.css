@@ -86,11 +86,12 @@ header {
   margin-right: auto;
   padding: 6px 12px;
   background-color: gray;
-border-radius: 2px;
+  border-radius: 2px;
+  margin-bottom: 3%;
 }
 
 .label {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .is-hidden {
@@ -103,5 +104,5 @@ border-radius: 2px;
 
 .no-result {
   color: blue;
-  align-self: center;
+  margin-bottom: 3%;
 }
