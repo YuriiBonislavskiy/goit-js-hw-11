@@ -5,6 +5,7 @@ import getRefs from './components/get-refs.js';
 import GaleryMarkup from './components/murkup.js';
 import LoadMoreBtn from './components/load-more-btn.js';
 import * as IS from './components/is.js';
+import Notiflix from 'notiflix';
 
 // if refs.btnSearch.classList.contains('with-btn')
 const refs = getRefs();
@@ -14,7 +15,7 @@ const pageType = refs.btnSearch.classList.contains('with-btn');
 let loadMoreBtn = null;
 
 if (pageType) {
-  console.log('ll;lklkkjjj');
+  // console.log('ll;lklkkjjj');
   loadMoreBtn = new LoadMoreBtn({
     selector: '.load-more',
     hidden: true,
@@ -22,7 +23,7 @@ if (pageType) {
 }
 pageType && loadMoreBtn.refs.button.addEventListener('click', searchData);
 
-console.log(pageType);
+// console.log(pageType);
 
 const Base_URL = 'https://pixabay.com/api/';
 
@@ -52,7 +53,10 @@ function onSearch(e) {
   searchApi.query = e.currentTarget.elements.searchQuery.value.trim();
 
   if (searchApi.query === '') {
-    return alert('Введи что-то нормальное');
+     Notiflix.Notify.warning(`Search string must not be empty.`, {
+       timeout: 2000,
+     });
+    return;
   }
   searchApi.resetPage();
       !refs.noResult.classList.contains('is-hidden') &&
@@ -70,13 +74,23 @@ async function searchData() {
     const { totalHits, hits } = dataApiResponse;
 
     if (totalHits < 1) {
-      console.log('Error');
+     Notiflix.Notify.failure(
+       `We're sorry, but you've reached the end of search results.`,
+       {
+         timeout: 2000,
+       }
+     );
       pageType && loadMoreBtn.hide();
       refs.btnSearch.removeAttribute('disabled');
       return;
     }
+    if (searchApi.page === 1) {
+        Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`, {
+          timeout: 2000,
+        });
+    }
     if (searchApi.page > 0 && searchApi.page * searchApi.pageSize < totalHits) {
-      console.log(searchApi.page, searchApi.pageSize, totalHits);
+      // console.log(searchApi.page, searchApi.pageSize, totalHits);
       pageType && loadMoreBtn.show();
       pageType && loadMoreBtn.enable();
     } else {
