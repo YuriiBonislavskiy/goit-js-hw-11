@@ -103,7 +103,6 @@ const gallery = new SimpleLightbox('.gallery__link', {
   captionDelay: 250,
 });
 
-// ***********************
 function smoothScroll() {
   // console.log(searchApi.page);
   const { height: cardHeight } = document
