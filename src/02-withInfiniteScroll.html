@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Image gallery</title>
+  <link rel="stylesheet" href="./css/common.css" />
+  <link rel="stylesheet" href="./css/gallery.css" />
+  <!-- <link href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css" rel="stylesheet" /> -->
+</head>
+
+<header>
+  <p><a class="back-ref" href="index.html">Go back</a></p>
+  <form class="search-form" id="search-form">
+    <!-- <div class="form-group mx-sm-3 mb-2">
+        <label for="searchQuery" class="sr-only">Что ищем?</label> -->
+    <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." />
+    <!-- </div> -->
+    <button type="submit" class="btn-search">
+      <svg class="icon-search" viewBox="0 0 32 32">
+        <path d="M31.008 27.231l-7.58-6.447c-0.784-0.705-1.622-1.029-2.299-0.998 
+              1.789-2.096 2.87-4.815 2.87-7.787 0-6.627-5.373-12-12-12s-12 5.373-12 
+              12 5.373 12 12 12c2.972 0 5.691-1.081 7.787-2.87-0.031 0.677 0.293 
+              1.515 0.998 2.299l6.447 7.58c1.104 1.226 2.907 1.33 4.007 
+              0.23s0.997-2.903-0.23-4.007zM12 20c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 
+              3.582 8 8-3.582 8-8 8z" />
+      </svg>
+    </button>
+  </form>
+
+</header>
+
+<body>
+  
+  <div class="gallery-container">
+    <div class="gallery">
+
+    </div>
+        <p class="no-result is-hidden">... No more results ...</p>
+  </div>
+
+  <script src="./js/home-work-11.js" type="module" pageType=false></script>
+
+</body>
+
+</html>
